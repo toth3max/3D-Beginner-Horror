@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Input;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -22,8 +23,14 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate ()
     {
-        float horizontal = Input.GetAxis ("Horizontal");
-        float vertical = Input.GetAxis ("Vertical");
+        var gamepad = UnityEngine.Experimental.Input.Gamepad.current;
+        if(gamepad == null)
+            return;
+
+        Vector2 move = gamepad.leftStick.ReadValue();
+
+        float horizontal = move.x; // Input.GetAxis ("Horizontal");
+        float vertical = move.y; // Input.GetAxis ("Vertical");
 
         m_Movement.Set(horizontal, 0f, vertical);
         m_Movement.Normalize ();
