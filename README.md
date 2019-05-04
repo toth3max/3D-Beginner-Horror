@@ -1,6 +1,6 @@
 # John Lemon's Haunted Jaunt: 3D Beginner
 
-This uses git LFS and the new unity input system.
+This uses git LFS and the new unity input system (https://github.com/Unity-Technologies/InputSystem).
 
 Includes https://github.com/Tayx94/graphy
 
